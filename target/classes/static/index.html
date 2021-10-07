@@ -39,16 +39,20 @@
         <ul id="messageArea">
 
         </ul>
-        <form id="messageForm" name="messageForm">
-            <div class="form-group">
-                <div class="input-group clearfix">
-                    <input type="file" id="upload_file" onchange="uploadFile(event)">
-                    <button class="primary" id="button_upload">Upload File</button>
-                    <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
-                    <button type="submit" class="primary">Send</button>
-                </div>
+        <div class="send-box">
+            <div>
+                <input type="file" id="upload_file" onchange="uploadFile(event)">
+                <button class="primary" id="button_upload">Upload File</button>
             </div>
-        </form>
+            <form id="messageForm" name="messageForm">
+                <div class="form-group">
+                    <div class="input-group clearfix">
+                        <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                        <button type="submit" class="primary">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
