@@ -1,5 +1,3 @@
-'use strict';
-
 var usernamePage = document.querySelector('#username-page');
 var chatPage = document.querySelector('#chat-page');
 var usernameForm = document.querySelector('#usernameForm');
@@ -75,6 +73,7 @@ function onMessageReceived(payload) {
     var message = JSON.parse(payload.body);
     console.log(message);
     var messageElement = document.createElement('li');
+    var messageBox = document.createElement('div')
 
     if(message.type === 'JOIN') {
         messageElement.classList.add('event-message');
@@ -83,7 +82,11 @@ function onMessageReceived(payload) {
         messageElement.classList.add('event-message');
         message.content = message.sender + ' left!';
     } else if (message.type === 'CHAT') {
-        messageElement.classList.add('chat-message');
+        if (message.sender === username) {
+            messageElement.classList.add('my-message');
+        } else {
+            messageElement.classList.add('chat-message');
+        }
 
         var avatarElement = document.createElement('i');
         var avatarText = document.createTextNode(message.sender[0]);
@@ -94,11 +97,18 @@ function onMessageReceived(payload) {
 
         var usernameElement = document.createElement('span');
         var usernameText = document.createTextNode(message.sender);
+        usernameElement.style['display'] = 'flex';
+        usernameElement.style['justify-content'] = message.sender === username ? 'flex-end' : 'flex-start';
         usernameElement.appendChild(usernameText);
-        messageElement.appendChild(usernameElement);
+        messageBox.classList.add('message-box');
+        messageBox.appendChild(usernameElement);
     }
     if (message.type == "FILE") {
-        messageElement.classList.add('chat-message');
+        if (message.sender === username) {
+            messageElement.classList.add('my-message');
+        } else {
+            messageElement.classList.add('chat-message');
+        }
 
         var avatarElement = document.createElement('i');
         var avatarText = document.createTextNode(message.sender[0]);
@@ -110,8 +120,10 @@ function onMessageReceived(payload) {
         var usernameElement = document.createElement('span');
         var usernameText = document.createTextNode(message.sender);
         usernameElement.appendChild(usernameText);
-        messageElement.appendChild(usernameElement);
-        var p = document.createElement('p');
+        usernameElement.style['display'] = 'flex';
+        usernameElement.style['justify-content'] = message.sender === username ? 'flex-end' : 'flex-start';
+        messageBox.appendChild(usernameElement);
+        var p = document.createElement('div');
         p.style.fontSize = "15px";
         p.style.fontWeight = "900";
         var textFile = document.createTextNode(message.filename);
@@ -122,14 +134,17 @@ function onMessageReceived(payload) {
         downloadLink.appendChild(p);
         downloadLink.href = linkSource;
         downloadLink.download = message.filename;
-        messageElement.appendChild(downloadLink);
+        messageBox.appendChild(downloadLink);
+        messageBox.classList.add('message-box');
+        messageElement.appendChild(messageBox);
     }
     else {
         var textElement = document.createElement('p');
         var messageText = document.createTextNode(message.content);
         textElement.appendChild(messageText);
-
-        messageElement.appendChild(textElement);
+        
+        messageBox.appendChild(textElement);
+        messageElement.appendChild(messageBox);
     }
 
 

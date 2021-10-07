@@ -190,12 +190,48 @@ button.accent {
     flex: 1;
 }
 
+.my-message {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-left: 68px;
+    position: relative;
+}
+
+.message-box {
+    max-width: 400px;
+    margin-right: 16px;
+}
+
+#chat-page .my-message i {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    right: -15px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 42px;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+#chat-page .my-message span {
+    color: #333;
+    font-weight: 600;
+}
+
 .input-group {
     display: flex;
 }
 
 #chat-page ul li p {
     margin: 0;
+    white-space: break-spaces;
+    word-break: break-word;
 }
 
 #chat-page .event-message {
