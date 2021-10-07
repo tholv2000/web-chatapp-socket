@@ -139,6 +139,8 @@ button.accent {
 }
 
 .chat-container {
+    display: flex;
+    flex-direction: column;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -150,6 +152,14 @@ button.accent {
     position: relative;
 }
 
+.send-box {
+    display: flex;
+}
+
+.group-upload {
+    
+}
+
 #chat-page ul {
     list-style-type: none;
     background-color: #FFF;
@@ -158,10 +168,11 @@ button.accent {
     overflow-y: scroll;
     padding: 0 20px 0px 20px;
     height: calc(100% - 150px);
+    flex: 1;
 }
 
 #chat-page #messageForm {
-    padding: 20px;
+    width: 85%;
 }
 
 #chat-page ul li {
@@ -169,6 +180,18 @@ button.accent {
     padding: 10px 20px;
     margin: 0;
     border-bottom: 1px solid #f4f4f4;
+}
+
+#messageFrom {
+    width: 85%;
+}
+
+#message {
+    flex: 1;
+}
+
+.input-group {
+    display: flex;
 }
 
 #chat-page ul li p {

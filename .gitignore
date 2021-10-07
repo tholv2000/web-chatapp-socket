@@ -25,6 +25,8 @@
 #/dist/
 #/nbdist/
 #/.nb-gradle/
+/nb-configuration.xml
+/nbactions.xml
 #build/
 #!**/src/main/**/build/
 #!**/src/test/**/build/
