@@ -10,6 +10,7 @@ var stompClient = null;
 var username = null;
 var roomId = null;
 
+var emojiDict = {":)":"x1F642", ":'(":"x1F622", ";)":"x1F609", ":D":"x1F600", ":O":"x1F62E", ":(":"x1F626"};
 
 var colors = [
     '#2196F3', '#32c787', '#00BCD4', '#ff5652',
@@ -138,7 +139,29 @@ function onMessageReceived(payload) {
         messageBox.classList.add('message-box');
         messageElement.appendChild(messageBox);
     }
+    else if (message.type == "CHAT") {
+        // result after replacing emoji
+        var result = "";
+        var contentResponse = message.content;
+
+        for (let key in emojiDict) {
+            if (contentResponse.includes(key)) {
+                //console.log(emojiDict[key]);
+                contentResponse = contentResponse.replaceAll(key, "&#" + emojiDict[key]);
+                //console.log(contentResponse);
+            }
+        }
+        var textElement = document.createElement('p');
+        textElement.innerHTML = contentResponse;
+
+
+        messageBox.appendChild(textElement);
+        messageElement.appendChild(messageBox);
+
+    }
     else {
+
+
         var textElement = document.createElement('p');
         var messageText = document.createTextNode(message.content);
         textElement.appendChild(messageText);
