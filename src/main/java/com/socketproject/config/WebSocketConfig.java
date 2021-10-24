@@ -27,7 +27,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer, WebSoc
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(new SocketHandler(), "/videochat").setAllowedOrigins("*");
+        registry.addHandler(new SocketHandler(), "/videochat").setAllowedOrigins("https://tgdchatapp.herokuapp.com");
     }
 }
 

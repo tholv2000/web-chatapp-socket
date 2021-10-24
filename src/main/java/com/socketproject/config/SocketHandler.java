@@ -37,7 +37,7 @@ public class SocketHandler extends TextWebSocketHandler {
     throws IOException {
       for (WebSocketSession webSocketSession : sessions) {
         if (!session.equals(webSocketSession)) {
-          webSocketSession.sendMessage(message);
+            webSocketSession.sendMessage(message);
         }
       }
     }
