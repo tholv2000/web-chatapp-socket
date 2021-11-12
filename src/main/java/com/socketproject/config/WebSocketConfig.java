@@ -11,7 +11,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer, WebSoc
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws").setAllowedOrigins("https://tgdchatapp.herokuapp.com").withSockJS();
+        registry.addEndpoint("/ws").setAllowedOrigins("https://tgd-chatv2.herokuapp.com").withSockJS();
     }
 
     @Override
