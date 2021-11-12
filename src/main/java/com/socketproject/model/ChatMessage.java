@@ -12,6 +12,7 @@ public class ChatMessage {
         JOIN,
         LEAVE,
         FILE,
+        CALL,
     }
 
     public MessageType getType() {
