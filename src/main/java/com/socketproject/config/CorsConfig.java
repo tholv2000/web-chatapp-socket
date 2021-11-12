@@ -12,6 +12,6 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowCredentials(true).allowedOrigins("https://tgdchatapp.herokuapp.com").allowedMethods("*");
+        registry.addMapping("/**").allowCredentials(true).allowedOrigins("https://tgd-chatv2.herokuapp.com").allowedMethods("*");
     }
 }
