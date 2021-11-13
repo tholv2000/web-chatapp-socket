@@ -13,6 +13,7 @@ public class ChatMessage {
         LEAVE,
         FILE,
         CALL,
+        ANSWER,
     }
 
     public MessageType getType() {
